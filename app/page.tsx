@@ -1,95 +1,79 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+import { MouseEvent, useState } from "react";
+import styles from "./page.module.css";
 
 export default function Home() {
+  const [step, setStep] = useState(1);
+
+  const handleStepChange = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const target = e.target as HTMLAnchorElement;
+    const step = parseInt(target.getAttribute("data-step") || "1");
+    setStep(step);
+    target.classList.add(styles.active);
+  };
+
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+      <aside>
+        {/* Navigation */}
+        <nav>
+          <ul>
+            <li>
+              <a href="#" onClick={handleStepChange} data-step={1}>
+                Step 1
+              </a>
+            </li>
+            <li>
+              <a href="#" onClick={handleStepChange} data-step={2}>
+                Step 2
+              </a>
+            </li>
+            <li>
+              <a href="#" onClick={handleStepChange} data-step={3}>
+                Step 3
+              </a>
+            </li>
+            <li>
+              <a href="#" onClick={handleStepChange} data-step={3}>
+                Step 4
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      {/* Step: 1 */}
+      {step === 1 && (
+        <section>
+          <h1>Step 1</h1>
+          <p>Step 1 content</p>
+        </section>
+      )}
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+      {/* Step: 2 */}
+      {step === 2 && (
+        <section>
+          <h1>Step 2</h1>
+          <p>Step 2 content</p>
+        </section>
+      )}
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+      {/* Step: 3 */}
+      {step === 3 && (
+        <section>
+          <h1>Step 3</h1>
+          <p>Step 3 content</p>
+        </section>
+      )}
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      {/* Step: 4 */}
+      {step === 4 && (
+        <section>
+          <h1>Step 4</h1>
+          <p>Step 4 content</p>
+        </section>
+      )}
     </main>
-  )
+  );
 }
