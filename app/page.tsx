@@ -1,4 +1,8 @@
 "use client";
+import Step1 from "@/forms/registration/Step1";
+import Step2 from "@/forms/registration/Step2";
+import Step3 from "@/forms/registration/Step3";
+import Step4 from "@/forms/registration/Step4";
 import { MouseEvent, useState } from "react";
 import styles from "./page.module.css";
 
@@ -8,9 +12,9 @@ export default function Home() {
   const handleStepChange = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const target = e.target as HTMLAnchorElement;
-    const step = parseInt(target.getAttribute("data-step") || "1");
+    const step = parseInt(target?.getAttribute("data-step") ?? "1");
     setStep(step);
-    target.classList.add(styles.active);
+    target?.classList.add(styles.active);
   };
 
   return (
@@ -43,37 +47,11 @@ export default function Home() {
         </nav>
       </aside>
 
-      {/* Step: 1 */}
-      {step === 1 && (
-        <section>
-          <h1>Step 1</h1>
-          <p>Step 1 content</p>
-        </section>
-      )}
-
-      {/* Step: 2 */}
-      {step === 2 && (
-        <section>
-          <h1>Step 2</h1>
-          <p>Step 2 content</p>
-        </section>
-      )}
-
-      {/* Step: 3 */}
-      {step === 3 && (
-        <section>
-          <h1>Step 3</h1>
-          <p>Step 3 content</p>
-        </section>
-      )}
-
-      {/* Step: 4 */}
-      {step === 4 && (
-        <section>
-          <h1>Step 4</h1>
-          <p>Step 4 content</p>
-        </section>
-      )}
+      {/* Steps */}
+      {step === 1 && <Step1 />}
+      {step === 2 && <Step2 />}
+      {step === 3 && <Step3 />}
+      {step === 4 && <Step4 />}
     </main>
   );
 }
