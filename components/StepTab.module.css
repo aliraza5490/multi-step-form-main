@@ -1,0 +1,26 @@
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #007acc;
+  color: #007acc;
+  font-weight: bold;
+  font-size: 16px;
+  position: relative;
+}
+
+.circle.active {
+  background-color: #007acc;
+  color: white;
+}
+
+.circle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

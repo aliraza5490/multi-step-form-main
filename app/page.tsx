@@ -26,16 +26,20 @@ export default function Home() {
       <aside>
         <ul>
           <li>
-            <StepTab onClick={handleStepChange} step={1} />
+            <StepTab
+              onClick={handleStepChange}
+              step={1}
+              isActive={step === 1}
+            />
           </li>
           <li>
-            <StepTab onClick={handleStepChange} step={2} />
+            <StepTab onClick={handleStepChange} step={2} isActive={step === 2}  />
           </li>
           <li>
-            <StepTab onClick={handleStepChange} step={3} />
+            <StepTab onClick={handleStepChange} step={3} isActive={step === 3} />
           </li>
           <li>
-            <StepTab onClick={handleStepChange} step={4} />
+            <StepTab onClick={handleStepChange} step={4} isActive={step === 4} />
           </li>
         </ul>
       </aside>
