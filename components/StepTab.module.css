@@ -5,16 +5,15 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 2px solid #007acc;
-  color: #007acc;
-  font-weight: bold;
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
   font-size: 16px;
   position: relative;
 }
 
 .circle.active {
-  background-color: #007acc;
-  color: white;
+  background-color: var(--secondary);
+  color: var(--primary);
 }
 
 .circle::before {
@@ -30,5 +29,4 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 2rem;
 }

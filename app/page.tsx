@@ -32,8 +32,8 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <aside>
-        <ul>
+      <aside className={styles.aside}>
+        <ul className={styles.asideUl}>
           <li>
             <StepTab
               onClick={handleStepChange}
@@ -66,13 +66,16 @@ export default function Home() {
       </aside>
 
       <Formik onSubmit={handleSubmit} initialValues={initialValues}>
-        <Form>
+        <Form className={styles.form}>
           {/* Steps Content */}
           {step === 1 && <Step1 />}
           {step === 2 && <Step2 />}
           {step === 3 && <Step3 />}
           {step === 4 && <Step4 />}
-          <button type="submit">Submit</button>
+          <section className={styles.formNav}>
+            <button>Go Back</button>
+            <button>Next</button>
+          </section>
         </Form>
       </Formik>
     </main>
