@@ -10,7 +10,7 @@ interface MyComponentProps {
 
 const StepTab: React.FC<MyComponentProps> = ({ step, onClick, isActive }) => {
   return (
-    <a href="#" onClick={onClick} data-step={step} className={styles.main}>
+    <a href="#" onClick={onClick} data-step={step} className={styles.tab}>
       <div className={classNames(styles.circle, { [styles.active]: isActive })}>
         {step}
       </div>
